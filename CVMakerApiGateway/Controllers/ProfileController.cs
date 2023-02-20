@@ -1,4 +1,7 @@
-﻿using CVMakerApiGateway.Models;
+﻿using AutoMapper;
+using CVMakerApiGateway.Contracts.Services;
+using CVMakerApiGateway.Models;
+using CVMakerApiGateway.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,16 +13,40 @@ namespace CVMakerApiGateway.Controllers
     [Authorize]
     public class ProfileController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetProfileDescription()
-        {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value;
+        private readonly IProfileService profileService;
+        private readonly IMapper mapper;
 
-            ProfileResponse profileResponse = new ProfileResponse()
-            {
-                FullName = userId
-            };
-            return Ok(profileResponse);
+        public ProfileController(IProfileService profileService, IMapper mapper)
+        {
+            this.profileService = profileService;
+            this.mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProfile()
+        {
+            var userId = (User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value).ToString();
+
+            var response = await profileService.GetProfile(userId);
+
+            return Ok(response);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProfile([FromBody] ProfileViewModel updateProfileRequest)
+        {
+            var profile = mapper.Map<ProfileDto>(updateProfileRequest);
+
+            var userId = (User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value).ToString();
+
+            
+
+            profile.UserId = userId;
+
+            var response = await profileService.UpdateProfile(profile);
+
+            return Ok(response);
         }
     }
 }
