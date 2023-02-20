@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A89E8023-CD0E-4DDC-9092-B2595ED87464}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D01C5AD9-D76C-43F0-B132-924F482C49AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateways", "APIGateways", "{C5673B36-190F-4ADF-8BF3-4EE062C5594C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CVMakerApiGateway", "CVMakerApiGateway", "{0B83838A-A943-4F86-88F8-E2D6ACE09DA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{62023FA2-7DE0-40E5-A808-28A5C5379161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVMakerApiGateway", "CVMakerApiGateway\CVMakerApiGateway.csproj", "{EDB343DA-12C9-4657-951A-D59D19970F34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDB343DA-12C9-4657-951A-D59D19970F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDB343DA-12C9-4657-951A-D59D19970F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDB343DA-12C9-4657-951A-D59D19970F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDB343DA-12C9-4657-951A-D59D19970F34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D01C5AD9-D76C-43F0-B132-924F482C49AB} = {A89E8023-CD0E-4DDC-9092-B2595ED87464}
+		{C5673B36-190F-4ADF-8BF3-4EE062C5594C} = {A89E8023-CD0E-4DDC-9092-B2595ED87464}
+		{0B83838A-A943-4F86-88F8-E2D6ACE09DA1} = {C5673B36-190F-4ADF-8BF3-4EE062C5594C}
+		{62023FA2-7DE0-40E5-A808-28A5C5379161} = {0B83838A-A943-4F86-88F8-E2D6ACE09DA1}
+		{EDB343DA-12C9-4657-951A-D59D19970F34} = {0B83838A-A943-4F86-88F8-E2D6ACE09DA1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B2EEC88-72E9-48CF-B650-0A75E41489A4}
+	EndGlobalSection
+EndGlobal
