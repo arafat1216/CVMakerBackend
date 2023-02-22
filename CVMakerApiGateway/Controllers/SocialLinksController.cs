@@ -10,39 +10,37 @@ namespace CVMakerApiGateway.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-    public class ProfileController : ControllerBase
+    public class SocialLinksController : ControllerBase
     {
-        private readonly IProfileService profileService;
+        private readonly ISocialLinksService socialLinksService;
         private readonly IMapper mapper;
 
-        public ProfileController(IProfileService profileService, IMapper mapper)
+        public SocialLinksController(ISocialLinksService socialLinksService, IMapper mapper)
         {
-            this.profileService = profileService;
+            this.socialLinksService = socialLinksService;
             this.mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProfile()
+        public async Task<IActionResult> GetSocialLinks()
         {
             var userId = User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value;
 
-            var response = await profileService.GetProfile(userId);
+            var response = await socialLinksService.GetSocialLinks(userId);
 
             return Ok(response);
-
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile([FromBody] ProfileViewModel updateProfileRequest)
+        public async Task<IActionResult> UpdateSocialLinks(SocialLinkViewModel updateSocialLinksRequest)
         {
-            var profile = mapper.Map<ProfileDto>(updateProfileRequest);
+            var socialLinks = mapper.Map<SocialLinkDto>(updateSocialLinksRequest);
 
             var userId = User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value;
 
-            profile.UserId = userId;
+            socialLinks.UserId = userId;
 
-            var response = await profileService.UpdateProfile(profile);
+            var response = await socialLinksService.UpdateSocialLinks(socialLinks);
 
             return Ok(response);
         }

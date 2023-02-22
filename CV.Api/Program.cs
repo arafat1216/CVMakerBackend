@@ -27,6 +27,9 @@ builder.Services.AddDbContext<CVContext>(options =>
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly(), Assembly.GetAssembly(typeof(ProfileMapping)));
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
+builder.Services.AddScoped<ISocialLinksRepository, SocialLinksRepository>();
+builder.Services.AddScoped<ISocialLinksService, SocialLinksService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
