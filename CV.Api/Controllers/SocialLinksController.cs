@@ -25,7 +25,7 @@ namespace CV.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateSocialLinks(SocialLinkDto socialLinksUpadateRequest)
+        public async Task<IActionResult> UpdateSocialLinks([FromBody] SocialLinkDto socialLinksUpadateRequest)
         {
             var response = await socialLinksService.UpdateSocialLinks(socialLinksUpadateRequest);
 

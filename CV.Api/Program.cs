@@ -29,6 +29,8 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<ISocialLinksRepository, SocialLinksRepository>();
 builder.Services.AddScoped<ISocialLinksService, SocialLinksService>();
+builder.Services.AddScoped<ISummaryRepository, SummaryRepository>();
+builder.Services.AddScoped<ISummaryService, SummaryService>();
 
 var app = builder.Build();
 

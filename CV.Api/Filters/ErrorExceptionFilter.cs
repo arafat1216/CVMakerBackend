@@ -29,6 +29,9 @@ namespace CV.Api.Filters
             else if (exception == "SocialLinkNotFoundException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "SummaryNotFoundException")
+                return HttpStatusCode.NotFound;
+
 
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;

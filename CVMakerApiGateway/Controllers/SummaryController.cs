@@ -10,37 +10,38 @@ namespace CVMakerApiGateway.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SocialLinksController : ControllerBase
+    [Authorize]
+    public class SummaryController : ControllerBase
     {
-        private readonly ISocialLinksService socialLinksService;
+        private readonly ISummaryService summaryService;
         private readonly IMapper mapper;
 
-        public SocialLinksController(ISocialLinksService socialLinksService, IMapper mapper)
+        public SummaryController(ISummaryService summaryService, IMapper mapper)
         {
-            this.socialLinksService = socialLinksService;
+            this.summaryService = summaryService;
             this.mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetSocialLinks()
+        public async Task<IActionResult> GetSummary()
         {
             var userId = User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value;
 
-            var response = await socialLinksService.GetSocialLinks(userId);
+            var response = await summaryService.GetSummary(userId);
 
             return Ok(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateSocialLinks([FromBody] SocialLinkViewModel updateSocialLinksRequest)
+        public async Task<IActionResult> UpdateSummary([FromBody] SummaryViewModel updateSummaryRequest)
         {
-            var socialLinks = mapper.Map<SocialLinkDto>(updateSocialLinksRequest);
+            var summary = mapper.Map<SummaryDto>(updateSummaryRequest);
 
             var userId = User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value;
 
-            socialLinks.UserId = userId;
+            summary.UserId = userId;
 
-            var response = await socialLinksService.UpdateSocialLinks(socialLinks);
+            var response = await summaryService.UpdateSummary(summary);
 
             return Ok(response);
         }

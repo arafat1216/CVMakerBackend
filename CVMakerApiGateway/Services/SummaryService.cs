@@ -3,19 +3,19 @@ using CVMakerApiGateway.Models;
 
 namespace CVMakerApiGateway.Services
 {
-    public class SocialLinksService : ISocialLinksService
+    public class SummaryService : ISummaryService
     {
         private readonly HttpClient client;
 
-        public SocialLinksService(HttpClient client)
+        public SummaryService(HttpClient client)
         {
             this.client = client;
         }
-        public async Task<SocialLinkDto> GetSocialLinks(string userId)
+        public async Task<SummaryDto> GetSummary(string userId)
         {
             try
             {
-                var response = await client.GetAsync($"/api/SocialLinks/{userId}");
+                var response = await client.GetAsync($"/api/Summary/{userId}");
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -26,19 +26,19 @@ namespace CVMakerApiGateway.Services
                     throw exception;
                 }
 
-                return await response.Content.ReadAsAsync<SocialLinkDto>();
+                return await response.Content.ReadAsAsync<SummaryDto>();
             }
             catch (Exception exception)
             {
-                throw new Exceptions.SocialLinkException(exception.Message);
+                throw new Exceptions.SummaryException(exception.Message);
             }
         }
 
-        public async Task<SocialLinkDto> UpdateSocialLinks(SocialLinkDto socialLink)
+        public async Task<SummaryDto> UpdateSummary(SummaryDto summary)
         {
             try
             {
-                var response = await client.PostAsJsonAsync("/api/SocialLinks", socialLink);
+                var response = await client.PostAsJsonAsync("/api/Summary", summary);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -49,12 +49,12 @@ namespace CVMakerApiGateway.Services
                     throw exception;
                 }
 
-                return await response.Content.ReadAsAsync<SocialLinkDto>();
+                return await response.Content.ReadAsAsync<SummaryDto>();
             }
             catch (Exception ex)
             {
 
-                throw new Exceptions.SocialLinkException($"Social Links Update Failed! {ex.Message}");
+                throw new Exceptions.SummaryException($"Summary Update Failed! {ex.Message}");
             }
         }
     }

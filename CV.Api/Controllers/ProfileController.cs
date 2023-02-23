@@ -25,7 +25,7 @@ namespace CV.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile(ProfileDto profileUpadateRequest)
+        public async Task<IActionResult> UpdateProfile([FromBody] ProfileDto profileUpadateRequest)
         {
             var response = await profileService.UpdateProfile(profileUpadateRequest);
 

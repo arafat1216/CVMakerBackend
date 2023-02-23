@@ -29,6 +29,9 @@ namespace CVMakerApiGateway.Filters
             else if (exception == "SocialLinkException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "SummaryException")
+                return HttpStatusCode.NotFound;
+
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;
 
