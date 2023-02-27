@@ -31,6 +31,8 @@ builder.Services.AddScoped<ISocialLinksRepository, SocialLinksRepository>();
 builder.Services.AddScoped<ISocialLinksService, SocialLinksService>();
 builder.Services.AddScoped<ISummaryRepository, SummaryRepository>();
 builder.Services.AddScoped<ISummaryService, SummaryService>();
+builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+builder.Services.AddScoped<ISkillService, SkillService>();
 
 var app = builder.Build();
 

@@ -32,6 +32,9 @@ namespace CV.Api.Filters
             else if (exception == "SummaryNotFoundException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "SkillNotFoundException")
+                return HttpStatusCode.NotFound;
+
 
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;

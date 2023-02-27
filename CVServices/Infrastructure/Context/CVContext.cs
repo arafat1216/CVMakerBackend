@@ -12,6 +12,7 @@ namespace CVServices.Infrastructure.Context
 
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<SocialLink> SocialLinks { get; set; }
-        public DbSet<Summary> Summaries { get; set; }  
+        public DbSet<Summary> Summaries { get; set; }
+        public DbSet<Skill> Skills { get; set; }
     }
 }
