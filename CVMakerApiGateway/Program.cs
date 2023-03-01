@@ -97,6 +97,11 @@ builder.Services.AddHttpClient<IProjectService, ProjectService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:CV"]);
 });
 
+builder.Services.AddHttpClient<ICourseService, CourseService>(c =>
+{
+    c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:CV"]);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

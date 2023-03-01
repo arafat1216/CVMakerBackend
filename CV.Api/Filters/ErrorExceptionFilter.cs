@@ -38,6 +38,9 @@ namespace CV.Api.Filters
             else if (exception == "ProjectNotFoundException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "CourseNotFoundException")
+                return HttpStatusCode.NotFound;
+
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;
 

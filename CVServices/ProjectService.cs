@@ -18,21 +18,21 @@ namespace CVServices
         }
         public async Task<ProjectDto> AddProject(AddProjectDto addProjectRequest)
         {
-            var skillToAdd = mapper.Map<Project>(addProjectRequest);
+            var projectToAdd = mapper.Map<Project>(addProjectRequest);
 
-            var response = await repository.AddProjectAsync(skillToAdd);
+            var response = await repository.AddProjectAsync(projectToAdd);
 
             return mapper.Map<ProjectDto>(response);
         }
 
         public async Task DeleteProject(int projectId)
         {
-            var skillToDelete = await repository.GetProjectByIdAsync(projectId);
+            var projectToDelete = await repository.GetProjectByIdAsync(projectId);
 
-            if (skillToDelete == null)
+            if (projectToDelete == null)
                 throw new Exceptions.ProjectNotFoundException($"Project With Id {projectId} Not Found");
 
-            await repository.DeleteProjectAsync(skillToDelete);
+            await repository.DeleteProjectAsync(projectToDelete);
         }
 
         public async Task<List<ProjectDto>> GetAllProjects(string userId)
