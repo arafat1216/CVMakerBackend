@@ -35,6 +35,8 @@ namespace CV.Api.Filters
             else if (exception == "SkillNotFoundException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "ProjectNotFoundException")
+                return HttpStatusCode.NotFound;
 
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;

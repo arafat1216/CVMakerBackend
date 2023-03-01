@@ -35,6 +35,9 @@ namespace CVMakerApiGateway.Filters
             else if (exception == "SkillException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "ProjectException")
+                return HttpStatusCode.NotFound;
+
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;
 
