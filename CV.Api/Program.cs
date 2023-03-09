@@ -37,6 +37,8 @@ builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IDegreeRepository, DegreeRepository>();
+builder.Services.AddScoped<IDegreeService, DegreeService>();
 
 var app = builder.Build();
 

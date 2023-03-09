@@ -41,6 +41,9 @@ namespace CV.Api.Filters
             else if (exception == "CourseNotFoundException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "DegreeNotFoundException")
+                return HttpStatusCode.NotFound;
+
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;
 

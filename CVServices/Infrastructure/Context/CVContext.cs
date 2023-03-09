@@ -16,5 +16,6 @@ namespace CVServices.Infrastructure.Context
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Degree> Degrees { get; set; }
     }
 }
