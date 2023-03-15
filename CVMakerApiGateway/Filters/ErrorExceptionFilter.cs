@@ -44,6 +44,9 @@ namespace CVMakerApiGateway.Filters
             else if (exception == "DegreeException")
                 return HttpStatusCode.NotFound;
 
+            else if (exception == "WorkExperienceException")
+                return HttpStatusCode.NotFound;
+
             else if (exception == "UnAuthorizedException")
                 return HttpStatusCode.Unauthorized;
 
