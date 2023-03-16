@@ -58,8 +58,8 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://dev-64581829.okta.com/oauth2/default";
-        options.Audience = "api://default";
+        options.Authority = builder.Configuration["Okta:OktaDomain"] ;
+        options.Audience = builder.Configuration["Okta:Audience"];
     });
 
 builder.Services.AddCors(options =>
