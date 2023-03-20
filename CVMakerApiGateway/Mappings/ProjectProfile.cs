@@ -11,6 +11,8 @@ namespace CVMakerApiGateway.Mappings
             CreateMap<ProjectViewModel, AddProjectDto>();
 
             CreateMap<ProjectViewModel, ProjectDto>();
+
+            CreateMap<CVMakerApiGateway.Models.ProjectDto, Common.Models.ProjectDto>();
         }
     }
 }

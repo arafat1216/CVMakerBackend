@@ -9,6 +9,8 @@ namespace CVMakerApiGateway.Mappings
         public ProfileMapping()
         {
             CreateMap<ProfileViewModel, ProfileDto>();
+
+            CreateMap<CVMakerApiGateway.Models.ProfileDto, Common.Models.ProfileDto>();
         }
     }
 }

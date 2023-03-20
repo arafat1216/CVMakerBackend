@@ -11,6 +11,8 @@ namespace CVMakerApiGateway.Mappings
             CreateMap<CourseViewModel, AddCourseDto>();
 
             CreateMap<CourseViewModel, CourseDto>();
+
+            CreateMap<CVMakerApiGateway.Models.CourseDto, Common.Models.CourseDto>();
         }
     }
 }

@@ -112,6 +112,11 @@ builder.Services.AddHttpClient<IWorkExperienceService, WorkExperienceService>(c 
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:CV"]);
 });
 
+builder.Services.AddHttpClient<ICVService, CVService>(c =>
+{
+    c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:CV"]);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

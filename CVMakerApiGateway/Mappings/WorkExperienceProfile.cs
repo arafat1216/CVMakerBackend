@@ -11,6 +11,8 @@ namespace CVMakerApiGateway.Mappings
             CreateMap<WorkExperienceViewModel, AddWorkExperienceDto>();
 
             CreateMap<WorkExperienceViewModel, WorkExperienceDto>();
+
+            CreateMap<CVMakerApiGateway.Models.WorkExperienceWithTasksDto, Common.Models.WorkExperienceDto>();
         }
     }
 }

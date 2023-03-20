@@ -11,6 +11,8 @@ namespace CVMakerApiGateway.Mappings
             CreateMap<SkillViewModel, AddSkillDto>();
 
             CreateMap<SkillViewModel, SkillDto>();
+
+            CreateMap<CVMakerApiGateway.Models.SkillDto, Common.Models.SkillDto>();
         }
     }
 }

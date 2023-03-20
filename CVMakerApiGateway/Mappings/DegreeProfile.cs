@@ -11,6 +11,8 @@ namespace CVMakerApiGateway.Mappings
             CreateMap<DegreeViewModel, AddDegreeDto>();
 
             CreateMap<DegreeViewModel, DegreeDto>();
+
+            CreateMap<CVMakerApiGateway.Models.DegreeDto, Common.Models.DegreeDto>();
         }
     }
 }

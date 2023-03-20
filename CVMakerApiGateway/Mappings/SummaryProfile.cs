@@ -9,6 +9,8 @@ namespace CVMakerApiGateway.Mappings
         public SummaryProfile()
         {
             CreateMap<SummaryViewModel, SummaryDto>();
+
+            CreateMap<CVMakerApiGateway.Models.SummaryDto, Common.Models.SummaryDto>();
         }
     }
 }
