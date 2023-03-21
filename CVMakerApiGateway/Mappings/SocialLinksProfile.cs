@@ -9,6 +9,8 @@ namespace CVMakerApiGateway.Mappings
         public SocialLinksProfile()
         {
             CreateMap<SocialLinkViewModel, SocialLinkDto>();
+
+            CreateMap<CVMakerApiGateway.Models.SocialLinkDto, Common.Models.SocialLinkDto>();
         }
     }
 }

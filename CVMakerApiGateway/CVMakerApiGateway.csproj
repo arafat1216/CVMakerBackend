@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\HTMLTemplateGenerator\HTMLTemplateGenerator.csproj" />
+    <ProjectReference Include="..\PDFGenerator\PDFGenerator.csproj" />
   </ItemGroup>
 
 </Project>

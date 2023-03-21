@@ -3,6 +3,7 @@
     public class CVDto
     {
         public ProfileDto Profile { get; set; }
+        public SocialLinkDto SocialLinks { get; set; }
         public SummaryDto Summary { get; set; }
         public List<WorkExperienceWithTasksDto> WorkExperiences { get; set; }
         public List<SkillDto> Skills { get; set; }

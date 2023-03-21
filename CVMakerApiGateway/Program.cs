@@ -1,10 +1,12 @@
 using CVMakerApiGateway.Contracts.Services;
 using CVMakerApiGateway.Filters;
 using CVMakerApiGateway.Services;
+using HTMLTemplateGenerator;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Okta.AspNetCore;
+using PDFGenerator;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -116,6 +118,12 @@ builder.Services.AddHttpClient<ICVService, CVService>(c =>
 {
     c.BaseAddress = new Uri(builder.Configuration["ApiConfigs:CV"]);
 });
+
+builder.Services.AddScoped<IHTMLTemplateGeneratorService, HTMLTemplateGeneratorService>();
+
+builder.Services.AddScoped<IPDFGeneratorService, PDFGeneratorService>();
+
+builder.Services.AddPDFGeneratorServices();
 
 var app = builder.Build();
 

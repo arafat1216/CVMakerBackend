@@ -1,0 +1,170 @@
+﻿@model Common.Models.CVDto;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style>
+        body{
+            color: #3F3D56;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .m-0{
+            margin:0;
+        }
+        .d-inline{
+            display: inline-block;
+        }
+        hr{
+            border: 1px solid black;
+        }
+
+        td{
+            margin:0;
+            padding:0;
+        }
+        .skills-section ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .skills-section ul li{
+            background-color: lightgray;
+            padding: 7px 25px;
+            border-radius: 5px;
+            margin-bottom:10px;
+        }
+
+
+        
+        .section-title{
+            text-align:center;
+        }
+        .work-experience, .degree, .project, .course{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv">
+        <div class="profile-section">
+            <h2 class="text-center">@Model.Profile.FullName</h2>
+            <ul class="contact-info m-0 text-center">
+                <li class="d-inline">@Model.Profile.Email |</li>
+                <li class="d-inline">@Model.Profile.PhoneNo |</li>
+                <li class="d-inline">@Model.Profile.Address</li>
+            </ul>
+            <ul class="social-links m-0 text-center">
+               @if (!string.IsNullOrEmpty(Model.SocialLinks.LinkedinUrl))
+                {
+                    <li class="d-inline">@Model.SocialLinks.LinkedinUrl</li>
+                }
+                @if (!string.IsNullOrEmpty(Model.SocialLinks.GithubUrl))
+                {
+                    <li class="d-inline">| @Model.SocialLinks.GithubUrl</li>
+                }    
+            </ul>
+            <hr />
+        </div>
+        <!--End of Profile Section-->
+        <div class="summary-section">
+            <h3 class="section-title">PROFESSIONAL SUMMARY</h3>
+            <hr />
+            <p>@Model.Summary.Description</p>
+        </div>
+        <!--End of Summary Section-->
+        <div class="work-experiences-section">
+            <h3 class="section-title">WORK EXPERIENCES</h3>
+            <hr />
+            @foreach (var item in Model.WorkExperiences)
+            {
+                <div class="work-experience">
+                    <table class="designation-date-table" style="width:100%">
+                        <tr>
+                            <td><h4 class="m-0">@item.Designation</h4></td>
+                            <td style="text-align:right"><h4 class="m-0">@item.StartDate - @item.EndDate</h4></td>
+                        </tr>
+                    </table>
+                    <p class="m-0">@item.Company</p>
+                    <ul class="m-0">
+                        @foreach (var task in item.Tasks)
+                       {
+                           <li>@task</li>
+                       }
+                    </ul>
+                </div>
+            }
+        </div>
+        <!--End of Work Experiences Section-->
+        <div class="skills-section">
+            <h3 class="section-title">KEY SKILLS</h3>
+            <hr />
+            <ul class="m-0">
+                @foreach (var item in Model.Skills)
+               {
+                   <li class="d-inline">@item.Name</li>
+               }
+            </ul>
+        </div>
+        <!--End of Skills Section-->
+        <div class="degree-section">
+            <h3 class="section-title">EDUCATION</h3>
+            <hr />
+            @foreach (var item in Model.Degrees)
+           {
+               <div class="degree">
+                   <table class="degree-date-table" style="width:100%">
+                       <tr>
+                           <td>
+                               <h4 class="m-0">@item.Name 
+                               @if (!string.IsNullOrEmpty(item.Subject))
+                               {
+                                   <span> (@item.Subject)</span>
+                               }
+                               </h4>
+                           </td>
+                           <td style="text-align:right">@item.StartYear - @item.EndYear</td>
+                       </tr>
+                   </table>
+                   <p class="m-0">@item.Institute</p>
+               </div>
+           }
+        </div>
+        <!--End of Education Section-->
+        <div class="projects-section">
+            <h3 class="section-title">PROJECTS</h3>
+            <hr />
+            @foreach (var item in Model.Projects)
+           {
+               <div class="project">
+                   <h4 class="m-0">@item.Name</h4>
+                   <p class="m-0"><b>Description: </b>@item.Description</p>
+                   @if (!string.IsNullOrEmpty(item.Link))
+                  {
+                      <p class="m-0"><b>Link: </b>@item.Link</p>
+                  }
+               </div>
+           }
+        </div>
+        <!--End of Projects Section-->
+        <div class="courses-section">
+            <h3 class="section-title">COURSES</h3>
+            <hr />
+            @foreach (var item in Model.Courses)
+           {
+               <div class="course">
+                   <h4 class="m-0">@item.Name</h4>
+                   @if (!string.IsNullOrEmpty(item.Institute))
+                  {
+                      <p class="m-0">@item.Institute</p>
+                  }
+               </div>
+           }
+        </div>
+        <!--End of Courses Section-->
+    </div>
+</body>
+</html>

@@ -17,6 +17,8 @@ namespace CVMakerApiGateway.Services
             
             cvDto.Profile = await GetProfile(userId);
 
+            cvDto.SocialLinks = await GetSocialLinks(userId);
+
             cvDto.Summary = await GetSummary(userId);
 
             cvDto.WorkExperiences = await GetWorkExperiences(userId);
@@ -34,6 +36,18 @@ namespace CVMakerApiGateway.Services
             cvDto.Courses = await GetCourses(userId);
 
             return cvDto;
+        }
+
+        private async Task<SocialLinkDto> GetSocialLinks(string userId)
+        {
+            var response = await client.GetAsync($"/api/SocialLinks/{userId}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return new SocialLinkDto();
+            }
+
+            return await response.Content.ReadAsAsync<SocialLinkDto>();
         }
 
         private async Task<List<CourseDto>> GetCourses(string userId)
